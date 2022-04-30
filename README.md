@@ -3,5 +3,5 @@
 ## Installation
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/kidager/dotfiles/master/dotfiles.sh | bash
+curl -fsSL https://github.com/kidager/dotfiles/raw/master/dotfiles.sh | bash
 ```

@@ -1,1 +1,4 @@
 external-sources=true
+
+# Disable checks when loading dynamic paths
+disable=SC1090
