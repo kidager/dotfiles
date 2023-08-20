@@ -4,5 +4,5 @@
 * Run the init command
 
     ```sh
-    chezmoi init --apply git@github.com:kidager/dotfiles.git
+    chezmoi init --apply --source="~/.dotfiles" git@github.com:kidager/dotfiles.git
     ```
