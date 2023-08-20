@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+{{ if eq .chezmoi.os "darwin" }}
+# MacOS
+brew install gnupg
+{{ end }}
+
+{{ if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "ubuntu")) }}
+sudo apt install gnupg
+{{ end }}
+
+# Import my public gpg keys
+curl -fsSL "https://jc.tn/gpg" | gpg --import -
