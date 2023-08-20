@@ -1,0 +1,8 @@
+[include]
+	path = ~/.git-config/config/common.gitconfig
+
+[include]
+	path = ~/.git-config/config/kidager.gitconfig
+
+[includeIf "hasconfig:remote.*.url:**github.com:zenchef/**"]
+	path = ~/.git-config/config/jacem-at-zenchef.gitconfig

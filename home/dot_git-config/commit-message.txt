@@ -1,0 +1,19 @@
+
+
+# Please enter commit message in the conventional format and try to commit again.
+# Examples:
+#   - feat: a new feature
+#   - fix: a bug fix
+#   - docs(auth): docs related to the auth module
+#   - style: changes that do not affect the meaning of the code
+#   - refactor: a code change that neither fixes a bug nor adds a feature
+#   - perf: a code change that improve performance
+#   - test: adding missing tests or correcting existing tests
+#   - build: changes that affect the build system or external deps
+#   - ci: changes to our CI config files and scripts
+#   - chore: other changes that don't modify src or tests files
+#   - revert!: back to version X.Y.Z for component ZZZ
+#   - BREAKING CHANGE: remove support for XXX
+#   - feat : we support space before : for French people :-)
+# More info at: https://www.conventionalcommits.org
+#

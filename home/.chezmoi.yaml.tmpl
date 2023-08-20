@@ -1,0 +1,12 @@
+sourceDir: {{ .chezmoi.homeDir }}/.dotfiles
+
+encryption: gpg
+
+gpg:
+  recipients:
+    - 0x151102D9957894C51D76FD7DAC92A66F57B57DF2 # Yubikey Neo
+    - 0x7041025E661A7AA4A586367704C5E3CA5247B696 # Yubikey Nano
+  args:
+    - --batch
+    - --trust-model
+    - always
