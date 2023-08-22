@@ -1,0 +1,86 @@
+##### zsh #####
+export ZSH="${ZDOTDIR:-$HOME}/.oh-my-zsh"
+export ZSH_THEME="powerlevel10k/powerlevel10k";
+#### /zsh #####
+
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+export EDITOR='vim'
+
+COMPLETION_WAITING_DOTS="true";
+
+WORDCHARS='`~!@#$%^&*()-_=+[{]}\|;:",<.>/?'"'"
+
+HIST_STAMPS="yyyy-mm-dd";
+HISTCONTROL=ignoreboth
+HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
+HISTFILESIZE=20000
+HISTSIZE=100000
+SAVEHIST=100000
+
+export LESS="--tabs=4 --no-init --LONG-PROMPT --ignore-case --quit-if-one-screen --RAW-CONTROL-CHARS"
+
+##### gpg #####
+# https://stackoverflow.com/a/41054093/2041099
+export GPG_TTY="$TTY"
+# export GPG_TTY=$(tty)
+
+export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
+export GNUPGHOME="${HOME}/.gnupg"
+
+export KEYID="0xAC92A66F57B57DF2" # Yubikey Neo 5
+export GPGKEY="${KEYID}"
+export PGPKEY="${KEYID}"
+
+export KEYID_NANO="0x04C5E3CA5247B696" # Yubikey Nano
+export GPGKEY_NANO="${KEYID_NANO}"
+export PGPKEY_NANO="${KEYID_NANO}"
+
+export KEYID_NEO_LOST="0x0CA56B568CFDE7C2" # Lost Yubikey Neo
+export GPGKEY_NEO_LOST="${KEYID_NEO_LOST}"
+export PGPKEY_NEO_LOST="${KEYID_NEO_LOST}"
+#### /gpg #####
+
+##### age #####
+export AGE_BACKUP_PUBKEY="age14dytnafhz2kz3l4cl6xtqcpxkn4qfef200udh9gt6txn6dwxudcs9gdm4s"
+#### /age #####
+
+##### sops #####
+export SOPS_GPG_KEYSERVER="keys.openpgp.org"
+#### /sops #####
+
+##### node #####
+# The following is not compatible with nvm
+# export NPM_CONFIG_PREFIX="${HOME}/.npm-global"
+# export PATH="${PATH}:${NPM_CONFIG_PREFIX}/bin"
+
+export NVM_DIR="${HOME}/.nvm"
+#### /node #####
+
+##### path #####
+export PATH="${PATH}:./vendor/bin"
+export PATH="${PATH}:${HOME}/.yarn/bin"
+export PATH="${PATH}:${HOME}/.local/bin"
+# export PATH="${PATH}:${HOME}/.config/composer/vendor/bin"
+
+export PATH="/usr/local/sbin:${PATH}"
+#### /path #####
+
+export MYSQL_PS1='\u@\h [\d]> '
+
+# This will activate BuildKit experimental feature in Docker builder
+export DOCKER_BUILDKIT=1
+
+# This will force docker-compose to use Docker-cli builder, instead of the Python wrapper
+# Since Docker-cli has buildkit enabled, it will be used by docker-compose.
+export COMPOSE_DOCKER_CLI_BUILD=1
+
+#### Secrets
+[ -f "${ZDOTDIR:-$HOME}/.zshenv.secrets" ] && source "${ZDOTDIR:-$HOME}/.zshenv.secrets"
+### /Secrets
+
+# Skip checks for precommit
+export SKIP="phpstan"
+
+# GKE
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True

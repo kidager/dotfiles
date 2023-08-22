@@ -1,0 +1,67 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# Global Options
+setopt append_history           # Dont overwrite history
+setopt autocd                   # Allow changing directories without `cd`
+setopt extended_glob            # Some new features are activated for globbing. For example, the ^ character negates the pattern following it
+setopt extended_history         # Also record time and duration of commands.
+setopt hist_expire_dups_first   # Clear duplicates when trimming internal hist.
+setopt hist_find_no_dups        # Dont display duplicates during searches.
+setopt hist_ignore_all_dups     # Remember only one unique copy of the command.
+setopt hist_ignore_dups         # Ignore consecutive duplicates.
+setopt hist_reduce_blanks       # Remove superfluous blanks.
+setopt hist_save_no_dups        # Omit older commands in favor of newer ones.
+setopt no_nomatch               # Don't throw an error on empty for ... in ...
+setopt pushd_ignore_dups        # Dont push copies of the same dir on stack.
+setopt pushd_minus              # Reference stack entries with "-".
+setopt share_history            # Share history between multiple shells
+# /Global Options
+
+# zsh plugins
+plugins=(
+  artisan
+  colored-man-pages
+  command-not-found
+  common-aliases
+  composer
+  cp
+  docker
+  encode64
+  git
+  git-extras
+  github
+  gitignore
+  gpg-agent
+  history
+  history-substring-search
+  kubectl
+  kubectx
+  lol
+  ng
+  nmap
+  node
+  npm
+  perms
+  ripgrep
+  sudo
+  web-search
+  zsh-autosuggestions
+  zsh-iterm-touchbar
+  zsh-kubectl-prompt
+  zsh-syntax-highlighting
+)
+
+# Oh My ZSH
+[ -f "${ZSH}/oh-my-zsh.sh" ] && source "${ZSH}/oh-my-zsh.sh"
+
+# powerlevel10k
+[ -f "${ZDOTDIR:-$HOME}/.p10k.zsh" ] && source "${ZDOTDIR:-$HOME}/.p10k.zsh"
+
+for sourceFile in "${ZDOTDIR:-$HOME}/.zshrc.d/"**/*".zsh"; do
+  [ -f "$sourceFile" ] && source "$sourceFile"
+done
