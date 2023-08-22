@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+if [ ! -f "${HOME}/.dotfiles-key.age" ]; then
+  age --decrypt --output "${HOME}/.dotfiles-key.age" "{{ .chezmoi.sourceDir }}/.dotfiles-key.age"
+  chmod 600 "${HOME}/.dotfiles-key.age"
+fi
+

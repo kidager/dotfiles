@@ -1,6 +1,13 @@
 sourceDir: {{ .chezmoi.homeDir }}/.dotfiles
 
-encryption: gpg
+encryption: age
+
+age:
+  identity: {{ .chezmoi.homeDir }}/.dotfiles-key.age
+  recipients:
+    - age1rnllwh7hfs8wm54lxcgs70artrck2x6wsuf7ptu9p8z35lj5rcts955u04
+    - age1x89p6gp2jrghkq92qff4qrnr9u5s6dafquy6d07n68a5zd3dearsahtg2y
+    - age13f5fcdcq7xu2x4mze55qeqc6y7w09y3hqnpee5plj87yykwqaddqgv6pu4
 
 gpg:
   recipients:
