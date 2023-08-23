@@ -18,7 +18,7 @@ alias s='cd ..'
 alias vi="vim"
 alias v="vim"
 
-[ "$(command -v exa)" ] && alias ls='exa'
+[ "$(command -v exa)" ] && alias ls='exa --icons'
 alias ll='ls -l'
 alias lla='ll -a'
 alias llh='ll -h'

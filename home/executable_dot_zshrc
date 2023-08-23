@@ -65,3 +65,4 @@ plugins=(
 for sourceFile in "${ZDOTDIR:-$HOME}/.zshrc.d/"**/*".zsh"; do
   [ -f "$sourceFile" ] && source "$sourceFile"
 done
+
