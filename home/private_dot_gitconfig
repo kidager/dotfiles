@@ -6,3 +6,4 @@
 
 [includeIf "hasconfig:remote.*.url:**github.com:zenchef/**"]
 	path = ~/.git-config/config/jacem-at-zenchef.gitconfig
+

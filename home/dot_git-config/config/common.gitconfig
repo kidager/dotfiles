@@ -1,14 +1,29 @@
 [init]
-    defaultBranch = master
-    templateDir = ~/.git-config/git-template
+  defaultBranch = master
+  templateDir = ~/.git-config/git-template
 
 [color]
-    diff = auto
-    status = auto
-    branch = auto
-    interactive = auto
-    ui = auto
-    pager = true
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = true
+  pager = true
+
+  [diff-highlight]
+	  oldNormal = red bold
+	  oldHighlight = red bold 52
+	  newNormal = green bold
+	  newHighlight = green bold 22
+
+  [diff]
+	  meta = 11
+	  frag = magenta bold
+	  func = 146 bold
+	  commit = yellow bold
+	  old = red bold
+	  new = green bold
+	  whitespace = red reverse
 
 [push]
     default = simple
@@ -21,11 +36,13 @@
     # editor = /usr/bin/vim --noplugin
     editor = vim
     page = delta
+    pager = diff-so-fancy | less --tabs=4 -RFX
     fscache = false
 
 # Need to install git-delta for this: https://dandavison.github.io/delta/installation.html
 [interactive]
-    diffFilter = delta --color-only
+    # diffFilter = delta --color-only
+    diffFilter = diff-so-fancy --patch
 
 [delta]
     navigate = true  # use n and N to move between diff sections
