@@ -1,4 +1,5 @@
 syntax on
+set termguicolors
 set ruler
 set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching
