@@ -14,6 +14,8 @@ alias rmrf='rm -rf'
 alias ..='cd ..'
 alias s='cd ..'
 
+alias work="tmux source-file '${HOME}/.config/tmux/sessions-work.tmux'"
+
 [ "$(command -v nvim)" ] && alias vim="nvim"
 alias vi="vim"
 alias v="vim"

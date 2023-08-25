@@ -1,3 +1,8 @@
+# This needs to be ontop of the instant prompt init
+if [ -z "$TMUX" ]; then
+  exec tmux -l new-session
+fi
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -65,4 +70,3 @@ plugins=(
 for sourceFile in "${ZDOTDIR:-$HOME}/.zshrc.d/"**/*".zsh"; do
   [ -f "$sourceFile" ] && source "$sourceFile"
 done
-

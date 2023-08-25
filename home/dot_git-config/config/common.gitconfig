@@ -34,7 +34,7 @@
     # editor = "code -a" --wait
     # editor = "nano"
     # editor = /usr/bin/vim --noplugin
-    editor = vim
+    editor = nvim
     page = delta
     pager = diff-so-fancy | less --tabs=4 -RFX
     fscache = false
