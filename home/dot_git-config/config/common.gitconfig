@@ -31,9 +31,7 @@
 
 [core]
     excludesfile = ~/.git-config/gitignore_global
-    # editor = "code -a" --wait
-    # editor = "nano"
-    # editor = /usr/bin/vim --noplugin
+    # editor = vim --noplugin
     editor = nvim
     page = delta
     pager = diff-so-fancy | less --tabs=4 -RFX
@@ -63,21 +61,45 @@
     template = ~/.git-config/commit-message.txt
 
 [alias]
+    # List the aliases
+    aliases = config --get-regexp '^alias.*'
+
+    # Well, I'm guilty of typing this a lot
     pyll = pull
 
-    sync = !git pull --ff --tags --progress --prune && git fetch --tags --progress --prune --prune-tags
+    # syn the current branch with the remote
+    sync = !git fetch --tags --progress --prune --prune-tags && git pull --ff --tags --progress --prune
+
+    # Remove merged branches (except for current branch, master, main and develop)
+    clean-merged = !git branch --merged | egrep -v '(^\\*|master|main|develop)' | xargs -r git branch -d
+
+    # Unstage anything that was added
     unstage = reset HEAD --
-    clean-merged = !git branch --merged | egrep -v '(^\\*|master|develop)' | xargs -r git branch -d
-    forget = rm --cached
 
-    empty-commit = !git reset && git commit --allow-empty --no-verify --message="empty"
+    # Remove a file/folder from git history
+    forget = rm -r --cached
 
+    # Create an empty commit, useful sometimes to change the commit hash without force pushing
+    empty-commit = commit --allow-empty --no-verify --message="empty commit"
+
+    # YOLO 🎉
     yolo = !git commit -m \"feat: $(curl -s whatthecommit.com/index.txt)\"
-    ignore = "!gi() { curl -sL https://www.toptal.com/developers/gitignore/api/$@ ;}; gi"
 
+    # View only the last commit
     last = log -1 HEAD
+
+    # Log with lots of details
     log-details = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
-    log-iso = log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=iso
+
+    # One line log with iso date
+    log-iso = log --graph --pretty='%C(red)%h%C(reset) -%C(auto)%d%C(reset) %s %C(green)(%ad) %C(bold blue)<%an>%C(reset)' --date=iso
+
+    # Look for a string in the code, and its authors
+    grep-blame = "!ggb() { git grep -n \"$1\" | while IFS=: read -r filename line content; do git blame --show-name -L \"${line},+1\" -- \"${filename}\" | cat; done }; ggb"
+    # Search for all TODOs in the code
+    todos = grep-blame "TODO:"
+    # Search for my TODOs in the code
+    my-todos = !git todos | grep -i jacem
 
 [pager]
     stash = false
@@ -86,7 +108,7 @@
     date = format:%Y-%m-%d %H:%M:%S # other values: relative / iso
 
 [format]
-    pretty = format:%h %Cblue%ad%Creset %ae %Cgreen%s%Creset
+    pretty = format:%h %C(blue)%ad%C(reset) %ae %C(green)%s%C(reset)
 
 [rebase]
     autoStash = true
