@@ -34,7 +34,7 @@
     # editor = vim --noplugin
     editor = nvim
     page = delta
-    pager = diff-so-fancy | less --tabs=4 -RFX
+    pager = diff-so-fancy | less --tabs=4 --no-init --RAW-CONTROL-CHARS
     fscache = false
 
 # Need to install git-delta for this: https://dandavison.github.io/delta/installation.html
@@ -82,6 +82,9 @@
     # Create an empty commit, useful sometimes to change the commit hash without force pushing
     empty-commit = commit --allow-empty --no-verify --message="empty commit"
 
+    # Recreate the last commit
+    recommit = commit --amend --reset-author --no-edit
+
     # YOLO 🎉
     yolo = !git commit -m \"feat: $(curl -s whatthecommit.com/index.txt)\"
 
@@ -97,7 +100,7 @@
     # Look for a string in the code, and its authors
     grep-blame = "!ggb() { git grep -n \"$1\" | while IFS=: read -r filename line content; do git blame --show-name -L \"${line},+1\" -- \"${filename}\" | cat; done }; ggb"
     # Search for all TODOs in the code
-    todos = grep-blame "TODO:"
+    todos = grep-blame "TODO"
     # Search for my TODOs in the code
     my-todos = !git todos | grep -i jacem
 
