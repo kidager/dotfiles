@@ -20,7 +20,7 @@ alias work="tmux source-file '${HOME}/.config/tmux/sessions-work.tmux'"
 alias vi="vim"
 alias v="vim"
 
-[ "$(command -v exa)" ] && alias ls='exa --icons'
+[ "$(command -v exa)" ] && alias ls='exa --icons --group-directories-first'
 alias ll='ls -l'
 alias lla='ll -a'
 alias llh='ll -h'
