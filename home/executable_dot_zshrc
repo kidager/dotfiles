@@ -1,5 +1,5 @@
 # This needs to be ontop of the instant prompt init
-if [ -z "$TMUX" ]; then
+if [ -z "$TMUX" ] && [ "$TERM_PROGRAM" != "vscode" ]; then
   exec tmux -l new-session
 fi
 
@@ -54,6 +54,7 @@ plugins=(
   perms
   ripgrep
   sudo
+  tmux
   web-search
   zsh-autosuggestions
   zsh-iterm-touchbar

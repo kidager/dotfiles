@@ -11,6 +11,11 @@ alias aptget='apt-get'
 alias rm='rm -I'
 alias rmrf='rm -rf'
 
+# AI related
+alias ai-mini="ollama run orca-mini"
+alias mini-ai="ai-mini"
+alias ai="ai-mini"
+
 alias ..='cd ..'
 alias s='cd ..'
 
