@@ -77,6 +77,9 @@
     # Unstage anything that was added
     unstage = reset HEAD --
 
+    # Un-commit the last commit
+    uncommit = reset --soft HEAD~
+
     # Remove a file/folder from git history
     forget = rm -r --cached
 
