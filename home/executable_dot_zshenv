@@ -81,7 +81,7 @@ export COMPOSE_DOCKER_CLI_BUILD=1
 ### /Secrets
 
 # Skip checks for precommit
-export SKIP="phpstan"
+# export SKIP="phpstan"
 
 # GKE
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True

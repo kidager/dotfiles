@@ -1,7 +1,7 @@
 # This needs to be ontop of the instant prompt init
-if [ -z "$TMUX" ] && [ "$TERM_PROGRAM" != "vscode" ]; then
-  exec tmux -l new-session
-fi
+#if [ -z "$TMUX" ] && [ "$TERM_PROGRAM" != "vscode" ]; then
+#  exec tmux -l new-session
+#fi
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -61,6 +61,9 @@ plugins=(
   zsh-kubectl-prompt
   zsh-syntax-highlighting
 )
+
+# Append macos autocomplete path
+[ "$(command -v brew)" ] && fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 
 # Oh My ZSH
 [ -f "${ZSH}/oh-my-zsh.sh" ] && source "${ZSH}/oh-my-zsh.sh"
