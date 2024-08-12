@@ -52,7 +52,7 @@ plugins=(
   node
   npm
   perms
-  ripgrep
+  # ripgrep # Seems to be removed from oh-my-zsh
   sudo
   tmux
   web-search

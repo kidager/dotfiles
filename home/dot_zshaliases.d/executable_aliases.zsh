@@ -26,6 +26,7 @@ alias vi="vim"
 alias v="vim"
 
 [ "$(command -v exa)" ] && alias ls='exa --icons --group-directories-first'
+[ "$(command -v eza)" ] && alias ls='eza --icons --group-directories-first'
 alias ll='ls -l'
 alias lla='ll -a'
 alias llh='ll -h'
@@ -59,6 +60,8 @@ alias nowdate='date +"%d-%m-%Y"'
 # Git
 alias push='git push -v'
 alias checkout='git checkout'
+alias checkotu='checkout'
+alias checkot='checkout'
 alias gpp="git pull --ff --tags --progress --prune"
 alias gfp="git fetch --tags --progress --prune --prune-tags"
 
