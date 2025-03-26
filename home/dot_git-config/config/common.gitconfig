@@ -11,19 +11,19 @@
   pager = true
 
   [diff-highlight]
-	  oldNormal = red bold
-	  oldHighlight = red bold 52
-	  newNormal = green bold
-	  newHighlight = green bold 22
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
 
   [diff]
-	  meta = 11
-	  frag = magenta bold
-	  func = 146 bold
-	  commit = yellow bold
-	  old = red bold
-	  new = green bold
-	  whitespace = red reverse
+    meta = 11
+    frag = magenta bold
+    func = 146 bold
+    commit = yellow bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
 
 [push]
     default = simple
@@ -84,7 +84,7 @@
     forget = rm -r --cached
 
     # Create an empty commit, useful sometimes to change the commit hash without force pushing
-    empty-commit = commit --allow-empty --no-verify --message="empty commit"
+    empty-commit = "commit --allow-empty --no-verify --message=\"empty commit\""
 
     # Recreate the last commit
     recommit = commit --amend --reset-author --no-edit
@@ -107,6 +107,11 @@
     todos = grep-blame "TODO"
     # Search for my TODOs in the code
     my-todos = !git todos | grep -i jacem
+
+    # Difftastic aliases, so `git dlog` is `git log` with difftastic and so on.
+    dlog = -c diff.external=difft log --ext-diff
+    dshow = -c diff.external=difft show --ext-diff
+    ddiff = -c diff.external=difft diff
 
 [pager]
     stash = false
