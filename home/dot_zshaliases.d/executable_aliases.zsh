@@ -104,6 +104,7 @@ alias wget='wget -c'
 alias artisan='php artisan'
 alias bashly='docker run --rm -it --user $(id -u):$(id -g) --volume "$PWD:/app" dannyben/bashly'
 [ "$(command -v semver)" ] || alias semver='docker run --rm -it --platform linux/amd64 ffurrer/semver'
+alias dive='docker run -it --rm --volume="/var/run/docker.sock:/var/run/docker.sock" wagoodman/dive'
 
 alias zshconfig="${EDITOR} ${ZDOTDIR:-$HOME}/.zshrc && exec zsh"
 alias ohmyzsh="${EDITOR} ${ZDOTDIR:-$HOME}/.oh-my-zsh && exec zsh"

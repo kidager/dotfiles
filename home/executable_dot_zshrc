@@ -57,9 +57,9 @@ plugins=(
   tmux
   web-search
   zsh-autosuggestions
-  zsh-syntax-highlighting
   zsh-iterm-touchbar
   zsh-kubectl-prompt
+  zsh-syntax-highlighting
 )
 
 # Append macos autocomplete path
