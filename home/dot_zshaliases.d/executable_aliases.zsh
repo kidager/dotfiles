@@ -19,7 +19,8 @@ alias ai="ai-mini"
 alias ..='cd ..'
 alias s='cd ..'
 
-alias work="tmux new-session \\; source-file '${HOME}/.config/tmux/sessions-work.tmux'"
+# alias work="tmux new-session \\; source-file '${HOME}/.config/tmux/sessions-work.tmux'"
+alias work='if [ -z "$TMUX" ]; then tmux new-session \; source-file ~/.config/tmux/sessions-work.tmux; else tmux source-file ~/.config/tmux/sessions-work.tmux; fi'
 
 [ "$(command -v nvim)" ] && alias vim="nvim"
 alias vi="vim"
