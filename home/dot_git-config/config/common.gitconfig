@@ -101,6 +101,9 @@
     # One line log with iso date
     log-iso = log --graph --pretty='%C(red)%h%C(reset) -%C(auto)%d%C(reset) %s %C(green)(%ad) %C(bold blue)<%an>%C(reset)' --date=iso
 
+    # Squash all commits: git squash-all -m "a brand new start"
+    squash-all = "!f(){ git reset $(git commit-tree \"HEAD^{tree}\" \"$@\");};f"
+
     # Look for a string in the code, and its authors
     grep-blame = "!ggb() { git grep -n \"$1\" | while IFS=: read -r filename line content; do git blame --show-name -L \"${line},+1\" -- \"${filename}\" | cat; done }; ggb"
     # Search for all TODOs in the code
